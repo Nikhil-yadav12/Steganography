@@ -1,19 +1,41 @@
 # Steganography
-This is a simple Python-based steganography tool that allows you to hide a secret message within an image and later retrieve it. The message is encoded in the least significant bits (LSB) of the image pixels.
+This is a simple Python-based steganography tool with both a command-line interface (CLI) and a graphical user interface (GUI) that allows you to hide a secret message within an image and later retrieve it. The message is encoded in the least significant bits (LSB) of the image pixels.
 
 ## Features
 - Hide a message in an image: Convert a text message into binary and hide it within the pixel values of an image.
 - Reveal a hidden message: Extract the hidden binary message from the image and convert it back to text.
+- GUI Version: User-friendly graphical interface to select images, enter messages, and save or reveal hidden messages.
 
 ## Requirements
 - Python 3.x
 - Pillow (Python Imaging Library fork)
+- Tkinter (comes with Python, no installation needed)
+
+
 You can install Pillow using pip:
 ```
 pip install Pillow
 ```
 
 ## Usage
+- ### GUI Version (Recommended)
+The GUI version of the tool allows you to interact with the program using a graphical interface.
+
+#### To run the GUI application:
+- Make sure you have Python 3.x installed.
+- Install the required dependencies:
+```
+pip install Pillow
+```
+- Run the application:
+```
+python steganography_gui.py
+```
+#### Use the interface to:
+- Hide a message: Enter a message, select an image, and save the image with the hidden message.
+- Reveal a message: Select an image to extract and display the hidden message.
+
+## CLI Version
 - Hiding a Message in an Image
 To hide a message in an image, use the hide action followed by the image path, the message to hide, and an optional output path for the image with the hidden message.
 ```
@@ -43,13 +65,13 @@ output_image.png: The image containing the hidden message.
 The extracted message will be printed to the console.
 
 ## How It Works
-- Hiding a Message:
+- #### Hiding a Message:
 
 The message is converted into a binary string.
 The length of the message is also encoded as the first 32 bits.
 Each bit of the message is embedded into the least significant bit (LSB) of the image's pixels.
 
-- Revealing a Message:
+- #### Revealing a Message:
 
 The LSB of each pixel is read to reconstruct the binary message.
 The first 32 bits are extracted to determine the length of the hidden message.
@@ -59,11 +81,11 @@ The message is hidden within the image's least significant bits, so the image ma
 The message length must be within the capacity of the image. If the message is too large, an error will occur.
 
 
-## Limitations
+# Limitations
 The tool works with grayscale and RGB images.
 Large messages may require a larger image to fit without issues.
 
 
-## License
+# License
 This project is open-source and released under the MIT License.
 
