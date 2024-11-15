@@ -20,7 +20,7 @@ To hide a message in an image, use the hide action followed by the image path, t
 python stegno.py hide <image_path> <message> [output_path]
 ```
 
-## Example:
+### Example:
 ```
 python stegno.py hide input_image.png "This is a secret message!" output_image.png
 ```
